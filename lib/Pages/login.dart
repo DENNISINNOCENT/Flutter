@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/rounded_buttons.dart';
 import 'package:flutter_application_1/widgets/rounded_text_form_field.dart';
 class LoginPage extends StatelessWidget {
- 
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset:true,
       backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
       body:_buildUI(context)
     );
@@ -38,9 +39,9 @@ class LoginPage extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height:MediaQuery.of(context).size.height *0.75,
       child:Form(child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -80,8 +81,8 @@ class LoginPage extends StatelessWidget {
       crossAxisAlignment:CrossAxisAlignment.center,
       children: [
       SizedBox(
-        width: MediaQuery.of(context).size.width * 0.85,
-        height: MediaQuery.of(context).size.height * 0.08,
+        width: MediaQuery.of(context).size.width * 0.75,
+        height: MediaQuery.of(context).size.height * 0.05,
         child:const RoundedButtons(text:"Sign In"),
       ),
       Padding(
