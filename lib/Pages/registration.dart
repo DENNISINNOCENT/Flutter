@@ -22,7 +22,13 @@ class _RegistrationPageState extends State<RegistrationPage>{
     ],);
   }
   Widget _header(BuildContext context){
-    return Text("This is the header");
+    return Container(
+      width:MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.05 ,
+      color: Color.fromRGBO(230, 253, 253, 1),
+      child: Center(child: Text("SIGN UP",style:TextStyle(color:Colors.green,fontSize: 30.0,fontWeight:FontWeight.w800))),
+
+    );
   }
   Widget _registrationform(BuildContext context){
     return Column(children: [
