@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/rounded_buttons.dart';
+import 'package:flutter_application_1/widgets/rounded_text_form_field.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -26,7 +28,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
       width:MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.05 ,
       color: Color.fromRGBO(230, 253, 253, 1),
-      child: Center(child: Text("SIGN UP",style:TextStyle(color:Colors.green,fontSize: 30.0,fontWeight:FontWeight.w800))),
+      child: Center(child: Text("SIGN UP",style:TextStyle(color:Colors.green,fontSize: 30.0,fontWeight:FontWeight.w800,fontStyle: FontStyle.italic))),
 
     );
   }
@@ -37,7 +39,19 @@ class _RegistrationPageState extends State<RegistrationPage>{
     ],);
   }
   Widget _formField(BuildContext context){
-    return Text("This is the form field");
+    return SizedBox(child: Column(
+      children: [
+        RoundedTextFormField(prefixIcon: Icons.person,hintText: "First Name",),
+        RoundedTextFormField(prefixIcon: Icons.person,hintText: "Last Name",),
+        RoundedTextFormField(prefixIcon: Icons.person,hintText: "Other Name",),
+        RoundedTextFormField(prefixIcon: Icons.email_outlined,hintText: "Email",),
+        RoundedTextFormField(prefixIcon: Icons.lock,hintText: "Password",obsecureText: true,),
+        RoundedTextFormField(prefixIcon: Icons.lock,hintText: "Confirm Password",obsecureText: true,),
+      ],
+    )
+    ,);
+
+    
   }
   Widget _footer(BuildContext context){
     return Text("This is the footer");
