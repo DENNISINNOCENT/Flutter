@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
   Widget _header(BuildContext context){
     return Container(
       width:MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.5,
       color: Color.fromRGBO(230, 253, 253, 1),
       child: Row(children: [
         const Padding(

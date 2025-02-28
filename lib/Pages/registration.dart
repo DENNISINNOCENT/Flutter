@@ -20,41 +20,81 @@ class _RegistrationPageState extends State<RegistrationPage>{
   Widget _buildUI(BuildContext context){
     return Column(children: [
       _header(context),
-      _registrationform(context),
+       Expanded(child: _registrationform(context)),
     ],);
   }
   Widget _header(BuildContext context){
-    return Container(
-      width:MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.05 ,
-      color: Color.fromRGBO(230, 253, 253, 1),
-      child: Center(child: Text("SIGN UP",style:TextStyle(color:Colors.green,fontSize: 30.0,fontWeight:FontWeight.w800,fontStyle: FontStyle.italic))),
-
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+      child: Container(
+        width:MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.05 ,
+        color: Color.fromRGBO(230, 253, 253, 1),
+        child: Center(child: Text("SIGN UP",style:TextStyle(color:Colors.green,fontSize: 30.0,fontWeight:FontWeight.w800,fontStyle: FontStyle.italic))),
+      
+      ),
     );
   }
   Widget _registrationform(BuildContext context){
-    return Column(children: [
-      _formField(context),
-      _footer(context),
-    ],);
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.80,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
+          child: Form(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+              _formField(context),
+              _footer(context),
+            ],),
+          ),
+        ),
+      ),
+    );
   }
   Widget _formField(BuildContext context){
-    return SizedBox(child: Column(
-      children: [
-        RoundedTextFormField(prefixIcon: Icons.person,hintText: "First Name",),
-        RoundedTextFormField(prefixIcon: Icons.person,hintText: "Last Name",),
-        RoundedTextFormField(prefixIcon: Icons.person,hintText: "Other Name",),
-        RoundedTextFormField(prefixIcon: Icons.email_outlined,hintText: "Email",),
-        RoundedTextFormField(prefixIcon: Icons.lock,hintText: "Password",obsecureText: true,),
-        RoundedTextFormField(prefixIcon: Icons.lock,hintText: "Confirm Password",obsecureText: true,),
-      ],
-    )
-    ,);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+      child: SizedBox(
+        height:MediaQuery.of(context).size.height * 0.50,
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          RoundedTextFormField(prefixIcon: Icons.person,hintText: "First Name",),
+          RoundedTextFormField(prefixIcon: Icons.person,hintText: "Last Name",),
+          RoundedTextFormField(prefixIcon: Icons.person,hintText: "Other Name",),
+          RoundedTextFormField(prefixIcon: Icons.email_outlined,hintText: "Email",),
+          RoundedTextFormField(prefixIcon: Icons.lock,hintText: "Password",obsecureText: true,),
+          RoundedTextFormField(prefixIcon: Icons.lock,hintText: "Confirm Password",obsecureText: true,),
+        ],
+      )
+      ,),
+    );
 
     
   }
   Widget _footer(BuildContext context){
-    return Text("This is the footer");
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.8,
+        height:MediaQuery.of(context).size.height * 0.05,
+        child: const RoundedButtons(text: "SIGN UP",),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 10.0,bottom: 10.0),
+        child: Text("Already have an account? Sign In",style: TextStyle(color: const Color.fromARGB(255, 168, 106, 83),fontSize: 15),),
+      ),
+    ],);
   }
 }
 
